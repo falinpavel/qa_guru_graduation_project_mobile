@@ -1,0 +1,40 @@
+[project]
+name = "qa-guru-graduation-project-mobile"
+version = "0.1.0"
+description = "project for qa guru course"
+authors = [
+    {name = "falinpavel-macbook",email = "aloverapf@yandex.ru"}
+]
+readme = "README.md"
+
+requires-python = ">=3.13,<4.0"
+
+[tool.pytest.ini_options]
+addopts = "-vv -s --showlocals --tb=long -rfEX --durations=10 --alluredir=allure-results"
+markers = [
+    "ui: Помечает тест как веб",
+    "regression: Помечает регрессионные тесты",
+    "smoke: Помечает smoke тесты",
+    "end_to_end: Помечает end to end тесты"
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.13,<4.0"
+poetry-core = "^2.1.3"
+selene = "2.0.0rc9"
+selenium = "4.35.0"
+pytest-xdist = "^3.8.0"
+pydantic = "^2.11.9"
+appium-python-client = "^5.2.4"
+python-dotenv = "^1.1.1"
+allure-pytest = "^2.15.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.13.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
