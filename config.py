@@ -4,6 +4,7 @@ from pathlib import Path
 from appium.options.android import UiAutomator2Options
 
 
+
 def get_apk_path():
     """Получает абсолютный путь к APK из относительного пути в .env"""
     relative_path = os.getenv("APK_FILE_PATH")

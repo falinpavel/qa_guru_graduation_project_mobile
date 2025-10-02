@@ -11,6 +11,7 @@ from config import options_management
 from utils import allure_attachments
 
 
+
 def pytest_addoption(parser):
     parser.addoption(
         "--context",
