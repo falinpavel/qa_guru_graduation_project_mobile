@@ -1,45 +1,44 @@
 import os
 
+from pathlib import Path
 from appium.options.android import UiAutomator2Options
 
-from const import APK_FILE_PATH
 
+def get_apk_path():
+    """Получает абсолютный путь к APK из относительного пути в .env"""
+    relative_path = os.getenv("APK_FILE_PATH")
+    if not relative_path:
+        raise ValueError("APK_FILE_PATH не указан в .env файле")
 
-def platform_management(context_platform):
-    pass
+    project_root = Path(__file__).parent
+    apk_path = project_root / relative_path
+
+    if not apk_path.exists():
+        raise FileNotFoundError(f"APK файл не найден: {apk_path}") # Для отладки
+    return str(apk_path)
 
 
 def options_management(context):
     options = UiAutomator2Options()
 
-    if context == 'emulator_device':
-        options.platform_name = "Android"
-        options.automation_name = "UiAutomator2"
-        options.app = APK_FILE_PATH
-        options.app_wait_activity = "org.wikipedia.*"
-        options.new_command_timeout = 300
-        options.connect_hardware_keyboard = True
-        options.set_capability(name="EXECUTABLE_PATH", value=os.getenv("EXECUTABLE_PATH"))
+    apk_absolute_path = get_apk_path()
 
-    if context == 'connected_device':
+    if context in ['emulator_device', 'connected_device']:
         options.platform_name = "Android"
         options.automation_name = "UiAutomator2"
-        options.device_name = "RF8N9193HQY"  # samsung s20 fe
-        options.app = APK_FILE_PATH
-        options.app_wait_activity = "org.wikipedia.*"
-        options.new_command_timeout = 300
-        options.connect_hardware_keyboard = True
+        options.device_name = os.getenv("DEVICE_NAME")
+        options.app = apk_absolute_path
         options.set_capability(name="EXECUTABLE_PATH", value=os.getenv("EXECUTABLE_PATH"))
 
     if context == 'bstack_device':
         options.platform_name = "Android"
-        options.device_name = "Google Pixel 3"
-        options.app = os.getenv("BS_APP_PATH")
+        options.device_name = os.getenv("DEVICE_NAME")
+        options.app = os.getenv("APK_FILE_PATH")
         options.set_capability(name="EXECUTABLE_PATH", value=os.getenv("EXECUTABLE_PATH"))
         options.set_capability(name="bstack:options", value={
-            "projectName": "First Python project",
+            "projectName": "Mobile graduation project qa_guru",
             "buildName": "browserstack-build-1",
-            "sessionName": "BStack first_test",
+            "sessionName": "BStack session",
             "userName": os.getenv("BS_LOGIN"),
             "accessKey": os.getenv("BS_PASSWORD")
         })
