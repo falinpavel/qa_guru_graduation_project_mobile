@@ -8,8 +8,7 @@ from dotenv import load_dotenv
 from selene import browser, support
 
 from config import options_management
-from utils import allure_attachments
-
+from utils.allure import allure_attachments
 
 
 def pytest_addoption(parser):
