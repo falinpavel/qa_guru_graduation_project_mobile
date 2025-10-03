@@ -32,9 +32,9 @@ class TestSkippedWelcomePromo:
     )
     def test_skipped_welcome_promo_and_yandex_plus_by_swipe(self):
         kinopoisk_app.welcome_screen.check_title_is_present()
-        kinopoisk_app.device_action.swipe_left()
+        kinopoisk_app.mobile_actions.swipe_left()
         kinopoisk_app.welcome_screen.check_title_is_present()
-        kinopoisk_app.device_action.swipe_left()
+        kinopoisk_app.mobile_actions.swipe_left()
         kinopoisk_app.welcome_screen \
             .tap_yandex_plus_not_now_button() \
             .tap_allow_notifications_button()

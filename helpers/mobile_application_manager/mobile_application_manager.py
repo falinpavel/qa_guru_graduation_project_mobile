@@ -6,7 +6,7 @@ class MobileApplicationManager:
     def __init__(self):
         self.welcome_screen = WelcomeScreen()
         # Хелпер для свайпов по экрану
-        self.device_action = SwipeShortcuts()
+        self.mobile_actions = SwipeShortcuts()
 
 
 kinopoisk_app = MobileApplicationManager()
