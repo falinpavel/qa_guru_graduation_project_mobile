@@ -14,7 +14,7 @@ from utils.allure import allure_attachments
 def pytest_addoption(parser):
     parser.addoption(
         "--context",
-        default="bstack_device",
+        default="emulator_device",
         choices=["bstack_device", "connected_device", "emulator_device"],
         help="Choose device",
     )
