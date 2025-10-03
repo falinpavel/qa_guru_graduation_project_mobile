@@ -21,7 +21,7 @@ def get_apk_path() -> str:
 
 def options_management(context) -> UiAutomator2Options:
     """Проверяем полученный на вход context и в зависимости
-     от него настраиваем и возвращаем соответствующие options"""
+    от него настраиваем и возвращаем соответствующие options"""
     options = UiAutomator2Options()
 
     apk_absolute_path = get_apk_path()

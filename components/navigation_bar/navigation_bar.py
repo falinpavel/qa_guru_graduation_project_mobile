@@ -7,6 +7,7 @@ from selene.support.shared.jquery_style import s
 
 class NavigationBar:
     """Класс для работы с навигационной панелью"""
+
     def __init__(self):
         """Инициализация элементов навигационной панели"""
         self.home_button = (AppiumBy.ACCESSIBILITY_ID, "ru.kinopoisk:id/hd")

@@ -7,6 +7,7 @@ from selene.support.shared.jquery_style import s
 
 class HomeScreen:
     """Класс для работы с экраном домашней страницы"""
+
     def __init__(self):
         """Инициализация элементов на экране домашней страницы"""
         self.refresh_button = (

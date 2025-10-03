@@ -10,6 +10,7 @@ class MobileGestures:
     """
     Современные мобильные жесты для Appium 2.0+
     """
+
     @staticmethod
     def swipe(direction: str, duration: int = 1000):
         """

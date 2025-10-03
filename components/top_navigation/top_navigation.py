@@ -7,6 +7,7 @@ from selene.support.shared.jquery_style import s
 
 class TopNavigation:
     """Класс для работы с верхним меню"""
+
     def __init__(self):
         """Инициализация элементов верхнего меню"""
         self.parent_element_top_navigation = (

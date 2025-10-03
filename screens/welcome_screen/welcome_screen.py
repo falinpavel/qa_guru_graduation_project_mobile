@@ -7,6 +7,7 @@ from selene.support.shared.jquery_style import s
 
 class WelcomeScreen:
     """Класс для работы с экраном приветствия"""
+
     def __init__(self):
         """Инициализация элементов на экране приветствия"""
         self.button_next = (AppiumBy.ID, "ru.kinopoisk:id/button_next")
