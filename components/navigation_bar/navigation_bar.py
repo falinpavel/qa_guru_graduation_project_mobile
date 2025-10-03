@@ -5,10 +5,7 @@ from selene import have, be
 from selene.support.shared.jquery_style import s
 
 
-
 class NavigationBar:
-
-
     def __init__(self):
         self.home_button = (AppiumBy.ACCESSIBILITY_ID, "ru.kinopoisk:id/hd")
         self.media_afisha_button = (AppiumBy.ACCESSIBILITY_ID, "ru.kinopoisk:id/afisha")
@@ -16,18 +13,19 @@ class NavigationBar:
         self.search_button = (AppiumBy.ACCESSIBILITY_ID, "ru.kinopoisk:id/search")
         self.profile_button = (AppiumBy.ACCESSIBILITY_ID, "ru.kinopoisk:id/profile")
 
-
     @step("Нажимаем на кнопку 'Главная'")
     def tap_home_button(self):
-        s(self.home_button).should(EC.by_and(be.clickable, have.text("Главное"))).click()
+        s(self.home_button).should(
+            EC.by_and(be.clickable, have.text("Главное"))
+        ).click()
         return self
-
 
     @step("Нажимаем на кнопку 'Медиа'")
     def tap_media_button(self):
-        s(self.media_afisha_button).should(EC.by_and(be.clickable, have.text("Медиа"))).click()
+        s(self.media_afisha_button).should(
+            EC.by_and(be.clickable, have.text("Медиа"))
+        ).click()
         return self
-
 
     @step("Нажимаем на кнопку 'Моё'")
     def tap_my_button(self):
@@ -36,10 +34,14 @@ class NavigationBar:
 
     @step("Нажимаем на кнопку 'Поиск'")
     def tap_search_button(self):
-        s(self.search_button).should(EC.by_and(be.clickable, have.text("Поиск"))).click()
+        s(self.search_button).should(
+            EC.by_and(be.clickable, have.text("Поиск"))
+        ).click()
         return self
 
     @step("Нажимаем на кнопку 'Профиль'")
     def tap_profile_button(self):
-        s(self.profile_button).should(EC.by_and(be.clickable, have.text("Профиль"))).click()
+        s(self.profile_button).should(
+            EC.by_and(be.clickable, have.text("Профиль"))
+        ).click()
         return self

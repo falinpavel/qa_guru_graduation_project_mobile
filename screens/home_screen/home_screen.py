@@ -5,14 +5,16 @@ from selene import have, be
 from selene.support.shared.jquery_style import s
 
 
-
 class HomeScreen:
-
-
     def __init__(self):
-        self.refresh_button = (AppiumBy.XPATH, "//android.widget.TextView[@text='Обновить']")
-        self.im_need_a_help_button = (AppiumBy.XPATH, "//android.widget.TextView[@text='Мне нужна помощь']")
-
+        self.refresh_button = (
+            AppiumBy.XPATH,
+            "//android.widget.TextView[@text='Обновить']",
+        )
+        self.im_need_a_help_button = (
+            AppiumBy.XPATH,
+            "//android.widget.TextView[@text='Мне нужна помощь']",
+        )
 
     @step("Нажимаем на кнопку 'Обновить'")
     def tap_refresh_button(self):

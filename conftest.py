@@ -16,7 +16,7 @@ def pytest_addoption(parser):
         "--context",
         default="bstack_device",
         choices=["bstack_device", "connected_device", "emulator_device"],
-        help="Choose device"
+        help="Choose device",
     )
 
 
@@ -32,7 +32,7 @@ def context(request):
     return request.config.getoption("--context")
 
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def mobile_management(context):
     appium_options = options_management(context=context)
 
@@ -40,13 +40,13 @@ def mobile_management(context):
         context=allure_commons._allure.StepContext
     )
 
-    with step('init application session'):
+    with step("init application session"):
         browser.config.driver = appium_webdriver.Remote(
             command_executor=appium_options.get_capability(name="EXECUTABLE_PATH"),
-            options=appium_options
+            options=appium_options,
         )
 
-    browser.config.timeout = float(os.getenv('TIMEOUT', '10.0'))
+    browser.config.timeout = float(os.getenv("TIMEOUT", "10.0"))
 
     yield
 
@@ -55,7 +55,9 @@ def mobile_management(context):
 
     session_id = browser.driver.session_id
 
-    with step('close application session'):
+    with step("close application session"):
         browser.quit()
 
-    allure_attachments.attach_bstack_video(session_id) if context == "bstack_device" else None
+    allure_attachments.attach_bstack_video(
+        session_id
+    ) if context == "bstack_device" else None
