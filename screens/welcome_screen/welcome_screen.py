@@ -7,18 +7,12 @@ from selene.support.shared.jquery_style import s
 
 class WelcomeScreen:
     def __init__(self):
-        self.button_next = (
-            AppiumBy.ID,
-            "ru.kinopoisk:id/button_next"
-        )
+        self.button_next = (AppiumBy.ID, "ru.kinopoisk:id/button_next")
         self.discription_title = (
             AppiumBy.ID,
             "ru.kinopoisk:id/description",
         )
-        self.yandex_plus_widget_ok_button = (
-            AppiumBy.XPATH,
-            "//android.widget.Button"
-        )
+        self.yandex_plus_widget_ok_button = (AppiumBy.XPATH, "//android.widget.Button")
         self.allow_notifications_button = (
             AppiumBy.ID,
             "com.android.permissioncontroller:id/permission_allow_button",
