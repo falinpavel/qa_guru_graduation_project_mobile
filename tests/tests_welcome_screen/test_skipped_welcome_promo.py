@@ -38,4 +38,3 @@ class TestSkippedWelcomePromo:
         kinopoisk_app.welcome_screen \
             .tap_yandex_plus_not_now_button() \
             .tap_allow_notifications_button()
-
