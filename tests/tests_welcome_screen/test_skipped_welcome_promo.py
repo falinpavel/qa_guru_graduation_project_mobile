@@ -26,7 +26,7 @@ class TestSkippedWelcomePromo:
     @allure_mid_level_marks(
         story="STORY-1 Приветсвенный экран",
         testcase_id="CASE-2",
-        title="Пропуск промо свайпами вправо и пропуском ЯндексПлюс",
+        title="Пропуск промо свайпами влево и пропуском ЯндексПлюс",
         label="UI",
         owner="AQA FALIN PAVEL"
     )
