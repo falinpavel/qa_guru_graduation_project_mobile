@@ -24,8 +24,7 @@ def options_management(context) -> UiAutomator2Options:
     от него настраиваем и возвращаем соответствующие options"""
     options = UiAutomator2Options()
 
-    if context in ["emulator_device", "connected_device"]:
-        apk_absolute_path = get_apk_path()
+    apk_absolute_path = get_apk_path()
 
     if context in ["emulator_device", "connected_device"]:
         options.platform_name = "Android"
@@ -46,9 +45,9 @@ def options_management(context) -> UiAutomator2Options:
         options.set_capability(
             name="bstack:options",
             value={
-                "projectName": "Mobile graduation project qa_guru",
-                "buildName": "browserstack-build-1",
-                "sessionName": "BStack session",
+                "projectName": "Дипломный проект по автоматизации мобильных приложений",
+                "buildName": "browserstack-graduation-project-build-1",
+                "sessionName": "context_bs_device_session",
                 "userName": os.getenv("BS_LOGIN"),
                 "accessKey": os.getenv("BS_PASSWORD"),
             },
