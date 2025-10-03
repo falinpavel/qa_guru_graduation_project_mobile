@@ -1,0 +1,1 @@
+resources/apk_file/Kinopoisk.apk filter=lfs diff=lfs merge=lfs -text
