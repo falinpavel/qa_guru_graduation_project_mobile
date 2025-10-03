@@ -42,4 +42,4 @@ class NavigationBar:
     @step("Нажимаем на кнопку 'Профиль'")
     def tap_profile_button(self):
         s(self.profile_button).should(EC.by_and(be.clickable, have.text("Профиль"))).click()
-        return self # TODO: Добавить проверку что на экране отображается профиль
+        return self
