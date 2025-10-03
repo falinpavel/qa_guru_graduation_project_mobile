@@ -1,8 +1,9 @@
+import time
+
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.actions.pointer_input import PointerInput
 from selenium.webdriver.common.actions.interaction import POINTER_TOUCH
 from selene import browser
-import time
 
 
 class MobileGestures:
@@ -10,7 +11,7 @@ class MobileGestures:
     Современные мобильные жесты для Appium 2.0+
     """
     @staticmethod
-    def swipe(direction, duration=1000):
+    def swipe(direction: str, duration: int = 1000):
         """
         Свайп через W3C Actions
 
@@ -59,27 +60,27 @@ class SwipeShortcuts:
     """Упрощенные методы для использования в тестах"""
 
     @staticmethod
-    def swipe_right(duration=500):
+    def swipe_right(duration: int = 500):
         """Свайп вправо"""
         MobileGestures.swipe(direction="right", duration=duration)
 
     @staticmethod
-    def swipe_left(duration=500):
+    def swipe_left(duration: int = 500):
         """Свайп влево"""
         MobileGestures.swipe(direction="left", duration=duration)
 
     @staticmethod
-    def swipe_up(duration=500):
+    def swipe_up(duration: int = 500):
         """Свайп вверх"""
         MobileGestures.swipe(direction="up", duration=duration)
 
     @staticmethod
-    def swipe_down(duration=500):
+    def swipe_down(duration: int = 500):
         """Свайп вниз"""
         MobileGestures.swipe(direction="down", duration=duration)
 
     @staticmethod
-    def swipe_multiple(direction, count=3, duration=500):
+    def swipe_multiple(direction: str, count: int = 3, duration: int = 500):
         """Несколько свайпов подряд"""
         for _ in range(count):
             MobileGestures.swipe(direction=direction, duration=duration)
