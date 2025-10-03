@@ -11,7 +11,8 @@ from config import options_management
 from utils.allure import allure_attachments
 
 
-def pytest_addoption(parser):
+def pytest_addoption(parser: pytest.Parser) -> None:
+    """Добавляем опцию запуска --context для выбора устройства"""
     parser.addoption(
         "--context",
         default="emulator_device",
@@ -20,7 +21,8 @@ def pytest_addoption(parser):
     )
 
 
-def pytest_configure(config):
+def pytest_configure(config: pytest.Config) -> None:
+    """Конфигурируем окружение и в зависимости от context выбираем файл .env"""
     context = config.getoption("--context")
     env_file_path = f".env.{context}"
 
@@ -29,18 +31,21 @@ def pytest_configure(config):
 
 @pytest.fixture
 def context(request):
+    """Получаем значение опции --context"""
     return request.config.getoption("--context")
 
 
 @pytest.fixture(scope="function", autouse=True)
 def mobile_management(context):
+    """Принимаем сконфигурированне опции и запускаем мобильное приложение,
+    а также добавляем хендлеры для сбора скриншотов и xml дампа по окончании теста"""
     appium_options = options_management(context=context)
 
     browser.config._wait_decorator = support._logging.wait_with(
         context=allure_commons._allure.StepContext
     )
 
-    with step("init application session"):
+    with step("Инициализируем сессию мобильного приложения"):
         browser.config.driver = appium_webdriver.Remote(
             command_executor=appium_options.get_capability(name="EXECUTABLE_PATH"),
             options=appium_options,
@@ -55,7 +60,7 @@ def mobile_management(context):
 
     session_id = browser.driver.session_id
 
-    with step("close application session"):
+    with step("Закрываем сессию мобильного приложения"):
         browser.quit()
 
     allure_attachments.attach_bstack_video(

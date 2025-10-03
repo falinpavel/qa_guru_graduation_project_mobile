@@ -4,8 +4,9 @@ from pathlib import Path
 from appium.options.android import UiAutomator2Options
 
 
-def get_apk_path():
-    """Получает абсолютный путь к APK из относительного пути в .env"""
+def get_apk_path() -> str:
+    """Получает абсолютный путь к APK из относительного пути
+    хранящегося в .env файле"""
     relative_path = os.getenv("APK_FILE_PATH")
     if not relative_path:
         raise ValueError("APK_FILE_PATH не указан в .env файле")
@@ -14,11 +15,13 @@ def get_apk_path():
     apk_path = project_root / relative_path
 
     if not apk_path.exists():
-        raise FileNotFoundError(f"APK файл не найден: {apk_path}")  # Для отладки
+        raise FileNotFoundError(f"APK файл не найден: {apk_path}")
     return str(apk_path)
 
 
-def options_management(context):
+def options_management(context) -> UiAutomator2Options:
+    """Проверяем полученный на вход context и в зависимости
+     от него настраиваем и возвращаем соответствующие options"""
     options = UiAutomator2Options()
 
     apk_absolute_path = get_apk_path()

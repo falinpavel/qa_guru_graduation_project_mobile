@@ -9,7 +9,6 @@ class MobileGestures:
     """
     Современные мобильные жесты для Appium 2.0+
     """
-
     @staticmethod
     def swipe(direction, duration=1000):
         """
@@ -38,11 +37,8 @@ class MobileGestures:
             )
 
         start_x, start_y, end_x, end_y = swipe_coords[direction]
-
-        # ПРАВИЛЬНОЕ использование ActionBuilder
-        actions = ActionChains(browser.driver)
-
         # СОЗДАЕМ и ДОБАВЛЯЕМ pointer input с правильными параметрами
+        actions = ActionChains(browser.driver)
         finger = PointerInput(POINTER_TOUCH, name="finger")
         actions.w3c_actions.add_pointer_input(kind="touch", name=finger)  # ← ПРАВИЛЬНО!
 
@@ -60,7 +56,7 @@ class MobileGestures:
 
 
 class SwipeShortcuts:
-    """Упрощенные методы для частых операций"""
+    """Упрощенные методы для использования в тестах"""
 
     @staticmethod
     def swipe_right(duration=500):

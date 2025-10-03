@@ -6,7 +6,9 @@ from selene.support.shared.jquery_style import s
 
 
 class TopNavigation:
+    """Класс для работы с верхним меню"""
     def __init__(self):
+        """Инициализация элементов верхнего меню"""
         self.parent_element_top_navigation = (
             AppiumBy.ID,
             "ru.kinopoisk:id/top_navigation",
@@ -26,31 +28,31 @@ class TopNavigation:
         )
 
     @step("Проверяем что на экране отображается верхнее меню с лого")
-    def check_top_navigation_is_present(self):
+    def check_top_navigation_is_present(self) -> "TopNavigation":
         s(self.parent_element_top_navigation).should(EC.by_and(be.visible))
         return self
 
     @step("Нажимаем на кнопку Моё кино")
-    def tap_my_movies_button(self):
+    def tap_my_movies_button(self) -> "TopNavigation":
         s(self.my_movies_button).should(
             EC.by_and(be.clickable, have.text("Моё кино"))
         ).click()
         return self
 
     @step("Нажимаем на кнопку 'Спорт'")
-    def tap_sport_button(self):
+    def tap_sport_button(self) -> "TopNavigation":
         s(self.sport_button).should(EC.by_and(be.clickable, have.text("Спорт"))).click()
         return self
 
     @step("Нажимаем на кнопку 'Каналы'")
-    def tap_channels_button(self):
+    def tap_channels_button(self) -> "TopNavigation":
         s(self.channels_button).should(
             EC.by_and(be.clickable, have.text("Каналы"))
         ).click()
         return self
 
     @step("Нажимаем на кнопку 'Магазин'")
-    def tap_store_button(self):
+    def tap_store_button(self) -> "TopNavigation":
         s(self.store_button).should(
             EC.by_and(be.clickable, have.text("Магазин"))
         ).click()
