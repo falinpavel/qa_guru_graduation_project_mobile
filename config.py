@@ -24,7 +24,8 @@ def options_management(context) -> UiAutomator2Options:
     от него настраиваем и возвращаем соответствующие options"""
     options = UiAutomator2Options()
 
-    apk_absolute_path = get_apk_path()
+    if context in ["emulator_device", "connected_device"]:
+        apk_absolute_path = get_apk_path()
 
     if context in ["emulator_device", "connected_device"]:
         options.platform_name = "Android"
