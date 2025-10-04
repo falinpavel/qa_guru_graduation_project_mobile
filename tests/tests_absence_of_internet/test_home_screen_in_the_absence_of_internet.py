@@ -20,11 +20,10 @@ class TestHomeScreenInTheAbsenceOfInternet:
         owner="AQA FALIN PAVEL",
     )
     @pytest.mark.usefixtures("skipped_welcome_screen_without_network")
-    def test_home_screen_have_refresh_connection_button(self, context):
+    def test_home_screen_have_refresh_connection_button(self):
         kinopoisk_app.top_navigation_home_screen.tap_sport_button()
         kinopoisk_app.home_screen.refresh_button_is_present()
         kinopoisk_app.top_navigation_home_screen.tap_channels_button()
         kinopoisk_app.home_screen.refresh_button_is_present()
         kinopoisk_app.top_navigation_home_screen.tap_store_button()
         kinopoisk_app.home_screen.refresh_button_is_present()
-
