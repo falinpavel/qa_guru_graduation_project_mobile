@@ -53,16 +53,12 @@ def options_management(context) -> UiAutomator2Options:
                 "deviceLogs": True,
                 "debug": True,
                 "idleTimeout": 300,
-                "acceptInsecureCerts": True
+                "acceptInsecureCerts": True,
             },
         )
         options.set_capability(
             name="appium.options",
-            value={
-                "autoGrantPermissions": True,
-                "noReset": False,
-                "fullReset": True
-            }
+            value={"autoGrantPermissions": True, "noReset": False, "fullReset": True},
         )
 
     return options

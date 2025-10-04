@@ -5,10 +5,7 @@ from utils.allure.allure_custom_labels import (
 )
 
 
-@allure_high_level_marks(
-    epic="Приветсвенный экран",
-    feature="Пропуск промо"
-)
+@allure_high_level_marks(epic="Приветсвенный экран", feature="Пропуск промо")
 class TestSkippedWelcomePromo:
     @allure_mid_level_marks(
         story="STORY-1 Приветсвенный экран",
@@ -23,7 +20,7 @@ class TestSkippedWelcomePromo:
             .tap_button_next() \
             .check_title_is_present() \
             .tap_button_next()
-        if context == 'bstack_device':
+        if context == "bstack_device":
             kinopoisk_app.welcome_screen \
                 .tap_yandex_plus_widget_ok_button() \
                 .tap_allow_notifications_button()
@@ -31,7 +28,6 @@ class TestSkippedWelcomePromo:
             kinopoisk_app.welcome_screen \
                 .tap_yandex_plus_not_now_button() \
                 .tap_allow_notifications_button()
-
 
     @allure_mid_level_marks(
         story="STORY-1 Приветсвенный экран",
@@ -45,7 +41,7 @@ class TestSkippedWelcomePromo:
         kinopoisk_app.mobile_actions.swipe_left()
         kinopoisk_app.welcome_screen.check_title_is_present()
         kinopoisk_app.mobile_actions.swipe_left()
-        if context == 'bstack_device':
+        if context == "bstack_device":
             kinopoisk_app.welcome_screen \
                 .tap_yandex_plus_widget_ok_button() \
                 .tap_allow_notifications_button()
