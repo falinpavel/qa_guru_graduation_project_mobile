@@ -76,7 +76,7 @@ def disable_internet():
     try:
         with step(f"Отключаем интернет"):
             # Полное отключение интернета
-            driver.set_network_connection(0)  # NO_CONNECTION
+            driver.set_network_connection(0)  # DISCONNECTION
     except Exception as e:
         raise e
 
@@ -85,6 +85,6 @@ def disable_internet():
     try:
         with step(f"Включаем интернет"):
             # Полное включение интернета
-            driver.set_network_connection(6)  # NO_CONNECTION
+            driver.set_network_connection(6)  # CONNECTION
     except Exception as e:
         raise e
