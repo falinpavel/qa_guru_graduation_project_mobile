@@ -24,13 +24,11 @@ def options_management(context) -> UiAutomator2Options:
     от него настраиваем и возвращаем соответствующие options"""
     options = UiAutomator2Options()
 
-    apk_absolute_path = get_apk_path()
-
     if context in ["emulator_device", "connected_device"]:
         options.platform_name = "Android"
         options.automation_name = "UiAutomator2"
         options.device_name = os.getenv("DEVICE_NAME")
-        options.app = apk_absolute_path
+        options.app = get_apk_path()
         options.set_capability(
             name="EXECUTABLE_PATH", value=os.getenv("EXECUTABLE_PATH")
         )
@@ -38,6 +36,7 @@ def options_management(context) -> UiAutomator2Options:
     if context == "bstack_device":
         options.platform_name = "Android"
         options.device_name = os.getenv("DEVICE_NAME")
+        options.platform_version = os.getenv("PLATFORM_VERSION")
         options.app = os.getenv("APK_FILE_PATH")
         options.set_capability(
             name="EXECUTABLE_PATH", value=os.getenv("EXECUTABLE_PATH")
@@ -50,7 +49,20 @@ def options_management(context) -> UiAutomator2Options:
                 "sessionName": "context_bs_device_session",
                 "userName": os.getenv("BS_LOGIN"),
                 "accessKey": os.getenv("BS_PASSWORD"),
+                "networkLogs": True,
+                "deviceLogs": True,
+                "debug": True,
+                "idleTimeout": 300,
+                "acceptInsecureCerts": True
             },
+        )
+        options.set_capability(
+            name="appium.options",
+            value={
+                "autoGrantPermissions": True,
+                "noReset": False,
+                "fullReset": True
+            }
         )
 
     return options
