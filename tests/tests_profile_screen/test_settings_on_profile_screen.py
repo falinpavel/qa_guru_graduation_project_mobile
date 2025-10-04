@@ -16,8 +16,12 @@ class TestSettingsOnProfileScreen:
         label="UI",
         owner="AQA FALIN PAVEL",
     )
-    def test_settings_on_profile_screen(self, skipped_welcome_screen):
+    def test_in_settings_on_profile_screen_can_edit_theme(self, skipped_welcome_screen):
         kinopoisk_app.navigation_bar.tap_profile_button()
         kinopoisk_app.profile_screen \
             .profile_screen_is_opened() \
             .tap_settings_button()
+        kinopoisk_app.settings_screen \
+            .tap_dark_theme_button() \
+            .tap_light_theme_button() \
+            .tap_system_theme_button()

@@ -1,7 +1,7 @@
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
 from selene.core.condition import Condition as EC
-from selene import have, be
+from selene import be
 from selene.support.shared.jquery_style import s
 
 
