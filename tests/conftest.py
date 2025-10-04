@@ -13,7 +13,7 @@ def skipped_welcome_screen():
 
 
 @pytest.fixture()
-def skipped_welcome_screen_without_network(disable_internet):
+def skipped_welcome_screen_without_network(disable_network):
     kinopoisk_app.welcome_screen \
             .tap_button_next() \
             .tap_button_next() \

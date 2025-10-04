@@ -69,7 +69,7 @@ def mobile_management(context):
 
 
 @pytest.fixture()
-def disable_internet():
+def disable_network():
     """Фикстура для временного отключения интернета на девайсе.
     По окончании теста интернет включается обратно"""
     driver = browser.driver
