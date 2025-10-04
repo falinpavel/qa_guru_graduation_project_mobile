@@ -11,7 +11,7 @@ from utils.allure.allure_custom_labels import (
     epic="Главный экран",
     feature="Приложение при отсутствии подключения к интернету"
 )
-class TestHomeScreenInTheAbsenceOfInternet:
+class TestHomeScreenInTheAbsenceOfNetwork:
     @allure_mid_level_marks(
         story="STORY-2 Главный экран",
         testcase_id="CASE-3",
