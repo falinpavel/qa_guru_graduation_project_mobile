@@ -19,6 +19,11 @@ class HomeScreen:
             "//android.widget.TextView[@text='Мне нужна помощь']",
         )
 
+    @step("Проверяем наличие кнопки 'Обновить'")
+    def refresh_button_is_present(self) -> "HomeScreen":
+        s(self.refresh_button).should(EC.by_and(be.clickable))
+        return self
+
     @step("Нажимаем на кнопку 'Обновить'")
     def tap_refresh_button(self) -> "HomeScreen":
         s(self.refresh_button).should(EC.by_and(be.clickable)).click()

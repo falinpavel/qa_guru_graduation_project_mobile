@@ -1,5 +1,3 @@
-import pytest
-
 from helpers.mobile_application_manager.mobile_application_manager import kinopoisk_app
 from utils.allure.allure_custom_labels import (
     allure_high_level_marks,
@@ -7,7 +5,10 @@ from utils.allure.allure_custom_labels import (
 )
 
 
-@allure_high_level_marks(epic="Приветсвенный экран с промо", feature="Пропуск промо")
+@allure_high_level_marks(
+    epic="Приветсвенный экран",
+    feature="Пропуск промо"
+)
 class TestSkippedWelcomePromo:
     @allure_mid_level_marks(
         story="STORY-1 Приветсвенный экран",

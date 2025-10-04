@@ -85,4 +85,4 @@ class SwipeShortcuts:
         """Несколько свайпов подряд"""
         for _ in range(count):
             MobileGestures.swipe(direction=direction, duration=duration)
-            time.sleep(0.2)
+            time.sleep(0.5)

@@ -1,9 +1,12 @@
+import time
+
 import pytest
 import allure_commons
 import os
 
 from allure_commons._allure import step
 from appium import webdriver as appium_webdriver
+from appium.webdriver.extensions.android.network import Network
 from dotenv import load_dotenv
 from selene import browser, support
 
@@ -17,7 +20,7 @@ def pytest_addoption(parser: pytest.Parser) -> None:
         "--context",
         default="emulator_device",
         choices=["bstack_device", "connected_device", "emulator_device"],
-        help="Choose device",
+        help="Выберите девайс на котором будут запущены тесты",
     )
 
 
@@ -66,3 +69,35 @@ def mobile_management(context):
     allure_attachments.attach_bstack_video(
         session_id
     ) if context == "bstack_device" else None
+
+
+@pytest.fixture()
+def disable_internet():
+    """Фикстура для временного отключения интернета на девайсе.
+    Для использования необходимо передать в тестовую функцию и внутри теста вызвать
+    данную фикстуру: disable_internet()"""
+    def _disable_internet():
+        # Используем существующий драйвер из browser
+        driver = browser.driver
+        try:
+            with step(f"Отключаем интернет"):
+                # Полное отключение интернета
+                driver.set_network_connection(0)  # NO_CONNECTION
+        except Exception as e:
+            raise e
+    return _disable_internet
+
+
+@pytest.fixture()
+def enable_network():
+    """Фикстура для включения интернета на устройстве"""
+    def _enable_internet():
+        # Используем существующий драйвер из browser
+        driver = browser.driver
+        try:
+            with step(f"Включаем интернет"):
+                # Полное отключение интернета
+                driver.set_network_connection(6)  # NO_CONNECTION
+        except Exception as e:
+            raise e
+    return _enable_internet
