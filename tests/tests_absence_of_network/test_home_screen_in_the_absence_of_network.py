@@ -1,5 +1,3 @@
-import pytest
-
 from helpers.mobile_application_manager.mobile_application_manager import kinopoisk_app
 from utils.allure.allure_custom_labels import (
     allure_high_level_marks,
