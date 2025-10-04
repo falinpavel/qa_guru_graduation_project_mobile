@@ -1,5 +1,3 @@
-import pytest
-
 from helpers.mobile_application_manager.mobile_application_manager import kinopoisk_app
 from utils.allure.allure_custom_labels import (
     allure_high_level_marks,
@@ -19,8 +17,10 @@ class TestHomeScreenInTheAbsenceOfNetwork:
         label="UI",
         owner="AQA FALIN PAVEL",
     )
-    @pytest.mark.usefixtures("skipped_welcome_screen_without_network")
-    def test_home_screen_have_refresh_connection_button(self):
+    def test_home_screen_have_refresh_connection_button(
+            self,
+            skipped_welcome_screen_without_network
+    ):
         kinopoisk_app.top_navigation_home_screen.tap_sport_button()
         kinopoisk_app.home_screen.refresh_button_is_present()
         kinopoisk_app.top_navigation_home_screen.tap_channels_button()
