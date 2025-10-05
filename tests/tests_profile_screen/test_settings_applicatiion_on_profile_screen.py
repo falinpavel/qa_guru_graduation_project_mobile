@@ -8,7 +8,7 @@ from utils.allure.allure_custom_labels import (
 @allure_high_level_marks(
     epic="Профиль пользователя", feature="Настройки приложения в профиле пользователя"
 )
-class TestSettingsOnProfileScreen:
+class TestSettingsApplicationOnProfileScreen:
     @allure_mid_level_marks(
         story="STORY-4 Профиль",
         testcase_id="CASE-5",
