@@ -34,7 +34,9 @@ class TestSearchMoviesAndCheckResults:
             "Lost"
         ]
     )
-    def test_type_movies_name_and_check_search_results(self, skipped_welcome_screen, movie_name):
+    def test_type_movies_name_and_check_search_results(
+            self, skipped_welcome_screen, movie_name
+    ):
         kinopoisk_app.navigation_bar.tap_search_button()
         kinopoisk_app.search_screen \
             .check_search_screen_is_opened() \
