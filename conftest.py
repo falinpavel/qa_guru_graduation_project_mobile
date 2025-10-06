@@ -39,7 +39,7 @@ def context(request):
 
 
 @pytest.fixture(scope="function", autouse=True)
-def mobile_management(context):
+def mobile_management(context, request):
     """Принимаем сконфигурированне опции и запускаем мобильное приложение,
     а также добавляем хендлеры для сбора скриншотов и xml дампа по окончании теста"""
     appium_options = options_management(context=context)
@@ -55,9 +55,6 @@ def mobile_management(context):
         )
 
     browser.config.timeout = float(os.getenv("TIMEOUT", "10.0"))
-    # Путь для сохранения видео
-    video_dir = os.path.join(os.getcwd(), "resources", "appium_video_records")
-    os.makedirs(video_dir, exist_ok=True)
 
     is_local_recording = context in ["emulator_device", "connected_device"]
     if is_local_recording:
@@ -67,15 +64,10 @@ def mobile_management(context):
 
     if is_local_recording:
         video_raw = browser.driver.stop_recording_screen()
-        # Можно сделать имя файла по имени теста, если нужно
-        video_name = f"{context}_test_video.mp4"
-        video_path = os.path.join(video_dir, video_name)
-        with open(video_path, "wb") as video_file:
-            video_file.write(base64.b64decode(video_raw))
-
-        allure.attach.file(
-            video_path,
-            name="Test video",
+        video_bytes = base64.b64decode(video_raw)
+        allure.attach(
+            video_bytes,
+            name=f"Видео: {request.node.name}",
             attachment_type=allure.attachment_type.MP4
         )
 
