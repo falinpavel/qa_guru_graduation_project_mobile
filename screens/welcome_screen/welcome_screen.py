@@ -15,7 +15,9 @@ class WelcomeScreen:
             AppiumBy.ID,
             "ru.kinopoisk:id/description",
         )
-        self.yandex_plus_widget_ok_button = (AppiumBy.XPATH, "//android.widget.Button")
+        self.yandex_plus_widget_ok_button = (
+            AppiumBy.ID, "ru.kinopoisk:id/button_payment"
+        )
         self.allow_notifications_button = (
             AppiumBy.ID,
             "com.android.permissioncontroller:id/permission_allow_button",

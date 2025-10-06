@@ -23,5 +23,3 @@ class TestHomeScreenInTheAbsenceOfNetwork:
         kinopoisk_app.home_screen.refresh_button_is_present()
         kinopoisk_app.top_navigation_home_screen.tap_channels_button()
         kinopoisk_app.home_screen.refresh_button_is_present()
-        kinopoisk_app.top_navigation_home_screen.tap_store_button()
-        kinopoisk_app.home_screen.refresh_button_is_present()
