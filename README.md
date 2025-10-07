@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=24&height=200&section=header&text=QA%20GURU&fontAlignY=35&fontSize=60&desc=PROJECT%20MOBILE%20AUTOMATION&descAlignY=60&descSize=50&animation=twinkling&fontColor=E9E9E9F3&descAlign=60&fontAlign=25
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=24&height=200&section=header&text=QA%20GURU&fontAlignY=35&fontSize=60&desc=PROJECT%20MOBILE%20AUTO&descAlignY=60&descSize=50&animation=twinkling&fontColor=E9E9E9F3&descAlign=60&fontAlign=25
 )
 
 # <p  align="center"> Этот проект является дипломной работой по курсу QA.GURU в части построения фреймворка по MOBILE (Appium) автоматизации на примере приложения "Кинопоиск"
