@@ -44,4 +44,4 @@ class TestSearchMoviesAndCheckResults:
         kinopoisk_app.search_screen \
             .check_search_screen_is_opened() \
             .click_search_input_and_type_of_value(to_search=movie_name) \
-            .check_first_search_result(expected_result=movie_name)
+            .check_search_results(expected_result=movie_name)
