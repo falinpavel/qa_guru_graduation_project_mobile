@@ -1,3 +1,5 @@
+import pytest
+
 from helpers.mobile_application_manager.mobile_application_manager import kinopoisk_app
 from utils.allure.allure_custom_labels import (
     allure_high_level_marks,
@@ -16,6 +18,8 @@ class TestMediaScreenInTheAbsenceOfNetwork:
         label="UI",
         owner="AQA FALIN PAVEL",
     )
+    @pytest.mark.network
+    @pytest.mark.ui
     def test_media_screen_have_refresh_connection_button(
         self, skipped_welcome_screen_without_network
     ):

@@ -1,7 +1,7 @@
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
 from selene.core.condition import Condition as EC
-from selene import be
+from selene import browser, be
 from selene.support.shared.jquery_style import s
 
 
@@ -49,12 +49,14 @@ class WelcomeScreen:
         "Проверяем что при выключенном интернете отображается кнопка 'Отлично' для промо ЯндексПлюс"
     )
     def check_yandex_plus_widget_ok_button_is_present(self) -> "WelcomeScreen":
-        s(self.yandex_plus_widget_ok_button).should(EC.by_and(be.visible))
+        s(self.yandex_plus_widget_ok_button).should(EC.by_and(
+            be.visible)).with_(timeout=browser.config.timeout * 2)
         return self
 
     @step("Нажимаем на кнопку 'Отлично' в виджете ЯндексПлюс")
     def tap_yandex_plus_widget_ok_button(self) -> "WelcomeScreen":
-        s(self.yandex_plus_widget_ok_button).should(EC.by_and(be.clickable)).click()
+        s(self.yandex_plus_widget_ok_button).should(EC.by_and(
+            be.clickable)).with_(timeout=browser.config.timeout * 0.5).click()
         return self
 
     @step("Нажимаем на кнопку 'Не сейчас' в виджете ЯндексПлюс")

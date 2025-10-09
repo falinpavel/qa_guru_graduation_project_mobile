@@ -15,7 +15,8 @@ markers = [
     "ui: Помечает тест как веб",
     "regression: Помечает регрессионные тесты",
     "smoke: Помечает smoke тесты",
-    "end_to_end: Помечает end to end тесты"
+    "end_to_end: Помечает end to end тесты",
+    "network: Помечает тесты, которые проверяют работу с сетью"
 ]
 
 [tool.poetry]

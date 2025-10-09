@@ -1,3 +1,5 @@
+import pytest
+
 from helpers.mobile_application_manager.mobile_application_manager import kinopoisk_app
 from utils.allure.allure_custom_labels import (
     allure_high_level_marks,
@@ -14,6 +16,9 @@ class TestSkippedWelcomePromo:
         label="UI",
         owner="AQA FALIN PAVEL",
     )
+    @pytest.mark.regression
+    @pytest.mark.smoke
+    @pytest.mark.ui
     def test_skipped_welcome_promo_and_yandex_plus_by_tapping(self, context):
         kinopoisk_app.welcome_screen \
             .check_title_is_present() \
@@ -36,6 +41,8 @@ class TestSkippedWelcomePromo:
         label="UI",
         owner="AQA FALIN PAVEL",
     )
+    @pytest.mark.smoke
+    @pytest.mark.ui
     def test_skipped_welcome_promo_and_yandex_plus_by_swipe(self, context):
         kinopoisk_app.welcome_screen.check_title_is_present()
         kinopoisk_app.mobile_actions.swipe_left()

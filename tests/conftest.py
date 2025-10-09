@@ -17,5 +17,6 @@ def skipped_welcome_screen_without_network(disable_network):
     kinopoisk_app.welcome_screen \
         .tap_button_next() \
         .tap_button_next() \
+        .check_yandex_plus_widget_ok_button_is_present() \
         .tap_yandex_plus_widget_ok_button() \
         .tap_allow_notifications_button()

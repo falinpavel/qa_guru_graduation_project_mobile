@@ -1,3 +1,5 @@
+import pytest
+
 from helpers.mobile_application_manager.mobile_application_manager import kinopoisk_app
 from utils.allure.allure_custom_labels import (
     allure_high_level_marks,
@@ -16,6 +18,9 @@ class TestSettingsApplicationOnProfileScreen:
         label="UI",
         owner="AQA FALIN PAVEL",
     )
+    @pytest.mark.smoke
+    @pytest.mark.regression
+    @pytest.mark.ui
     def test_in_settings_on_profile_screen_can_edit_theme(self, skipped_welcome_screen):
         kinopoisk_app.navigation_bar.tap_profile_button()
         kinopoisk_app.profile_screen \
