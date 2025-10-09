@@ -1,5 +1,4 @@
 import base64
-
 import allure
 import pytest
 import allure_commons
