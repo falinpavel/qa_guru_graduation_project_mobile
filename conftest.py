@@ -57,18 +57,20 @@ def mobile_management(context, request):
 
     is_local_recording = context in ["emulator_device", "connected_device"]
     if is_local_recording:
-        browser.driver.start_recording_screen(videoFps='30')
+        with step("При локальном запуске включается запись видео"):
+            browser.driver.start_recording_screen(videoFps='30')
 
     yield
 
     if is_local_recording:
-        video_raw = browser.driver.stop_recording_screen()
-        video_bytes = base64.b64decode(video_raw)
-        allure.attach(
-            video_bytes,
-            name=f"Видео: {request.node.name}",
-            attachment_type=allure.attachment_type.MP4
-        )
+        with step("Останавливаем запись видео и прикрепляем его во вложения allure"):
+            video_raw = browser.driver.stop_recording_screen()
+            video_bytes = base64.b64decode(video_raw)
+            allure.attach(
+                video_bytes,
+                name=f"Видео: {request.node.name}",
+                attachment_type=allure.attachment_type.MP4
+            )
 
     allure_attachments.attach_screenshot()
     allure_attachments.attach_xml_dump()
